@@ -161,9 +161,9 @@ const REASONING_EFFORT_ENUMS = {
   'nvidia/nemotron-3-ultra-550b-a55b': ['low'],
   'minimaxai/minimax-m3': ['adaptive'],
   'moonshotai/kimi-k3': ['low', 'high', 'max'],
-  'meta/muse-glimmer-30b': ['none', 'minimal', 'low', 'medium', 'high', 'max']
+  'z-ai/glm-5.3': ['low', 'high', 'max'],
+'meta/muse-glimmer-30b': ['none', 'minimal', 'low', 'medium', 'high', 'max']
 };
-
 function validReasoningEffort(model, effort) {
   const allowed = REASONING_EFFORT_ENUMS[model];
   if (!allowed) return effort;
@@ -269,11 +269,14 @@ function getReasoningPayload(model, enableThinking, clientReasoningEffort, hasTo
       return { reasoning_effort: enableThinking ? 'high' : 'low' };
     }
   
-      
+    
+    case 'z-ai/glm-5.3': {
+  if (effort) return { reasoning_effort: effort };
+  return { reasoning_effort: enableThinking ? 'high' : 'low' };
+    }      
+    
+        
           
-    case  'z-ai/glm-5.3': {
-        if (effort) return { reasoning_effort: effort };
-          return { reasoning_effort: enableThinking ? 'high' : 'low' };
     }     
 
     default:
