@@ -277,7 +277,7 @@ function getReasoningPayload(model, enableThinking, clientReasoningEffort, hasTo
     
         
           
-    }     
+         
 
     default:
       return {};
