@@ -267,14 +267,14 @@ function getReasoningPayload(model, enableThinking, clientReasoningEffort, hasTo
       // No off-switch — omitting the field falls back to Kimi's own 'max'.
       if (effort) return { reasoning_effort: effort };
       return { reasoning_effort: enableThinking ? 'high' : 'low' };
-    }
-        if (effort) return { reasoning_effort: effort };
-          return { reasoning_effort: enableThinking ? 'high' : 'low' };
-          }
-    }case  'z-ai/glm-5.3': {
-        if (effort) return { reasoning_effort: effort };
-          return { reasoning_effort: enableThinking ? 'high' : 'low' };
+    
+  
+      
           
+    case  'z-ai/glm-5.3': {
+        if (effort) return { reasoning_effort: effort };
+          return { reasoning_effort: enableThinking ? 'high' : 'low' };
+    }     
 
     default:
       return {};
