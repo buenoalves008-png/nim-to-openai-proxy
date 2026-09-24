@@ -265,7 +265,7 @@ function getReasoningPayload(model, enableThinking, clientReasoningEffort, hasTo
 
     case 'moonshotai/kimi-k3': {
       // No off-switch — omitting the field falls back to Kimi's own 'max'.
-      if (effort) return { reasoning_effort: effort };
+    
       return { reasoning_effort: 'none' };
     }
   
